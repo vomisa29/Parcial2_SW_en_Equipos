@@ -1,0 +1,50 @@
+<div class="bloque">
+  <div class="row">
+    <div class="col-6">
+
+      <div class="row" id="label">
+          <div class="col-1"></div>
+          <div class="col-9">
+          <h3>Pacientes</h3>
+          </div>
+          <div class="col"></div>
+      </div>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+          </tr>
+        </thead>
+          
+        <tbody>
+          <tr *ngFor="let paciente of pacientes">
+            <th scope="row">
+              <dd>
+                <a href="#" (click)="onSelected(paciente)">{{paciente.nombre}}</a>
+              </dd>
+            </th>
+            <td>
+              <dd>
+                {{paciente.edad}}
+              </dd>
+            </td>
+        </tbody>
+      </table>
+
+      <div class="container-fluid">
+        <p>Número de menores: {{numMenores()}}</p>
+      </div>
+    </div>
+
+
+    <div class="col-6">
+      <div class="bloque">
+        <div *ngIf="selected">
+          <app-pacienteDetail [pacienteDetail]="selectedPaciente"></app-pacienteDetail>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
